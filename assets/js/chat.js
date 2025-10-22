@@ -1,7 +1,12 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
   const chatWindow = document.getElementById("chatWindow");
   const input = document.getElementById("userInput");
   const sendBtn = document.getElementById("sendBtn");
+
+  if (!chatWindow || !sendBtn || !input) {
+    console.error("Chat elements not found in DOM. Check #chatWindow, #userInput, #sendBtn");
+    return;
+  }
 
   function addMsg(sender, text) {
     const div = document.createElement("div");
@@ -46,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
         state.score++;
         addMsg("bot", "✅ Correct! Active listening builds trust.");
       } else {
-        addMsg("bot", "❌ Not quite. The answer is Active listening.");
+        addMsg("bot", "❌ Not quite. Active listening builds trust.");
       }
       await delay(700);
       addMsg("bot", "Question 2️⃣: When a client raises an objection, you should…");
@@ -65,8 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
       await delay(500);
       const xp = state.score * 10;
       addMsg("bot", `🎉 You finished your quest with ${xp} XP!`);
-      if (state.score === 2)
-        addMsg("bot", "🏅 Badge Unlocked: Communication Pro!");
+      if (state.score === 2) addMsg("bot", "🏅 Badge Unlocked: Communication Pro!");
       else addMsg("bot", "👏 Good start! Try again to earn your badge.");
       await delay(800);
       addMsg("bot", "Ready for your next quest? Type ‘Next Quest’ or ‘Dashboard’.");
@@ -85,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  sendBtn?.addEventListener("click", async () => {
+  sendBtn.addEventListener("click", async () => {
     const text = input.value.trim();
     if (!text) return;
     addMsg("user", text);
@@ -93,9 +97,8 @@ document.addEventListener("DOMContentLoaded", () => {
     await respond(text);
   });
 
-  input?.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") sendBtn.click();
-  });
+  input.addEventListener("keydown", (e) => { if (e.key === "Enter") sendBtn.click(); });
 
+  // Seed intro
   addMsg("bot", "Hi! I’m Milo 👋 Ready to start your SkillQuest?");
 });
