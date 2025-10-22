@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   input.addEventListener("keydown", (e) => { if (e.key === "Enter") sendBtn.click(); });
 
-  // Pre-prompt chips
+  // Pre-prompt chips (optional)
   document.querySelectorAll(".chip.btn[data-prompt]").forEach(btn => {
     btn.addEventListener("click", () => {
       const text = btn.getAttribute("data-prompt");
