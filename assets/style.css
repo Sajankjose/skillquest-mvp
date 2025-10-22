@@ -1,0 +1,20 @@
+:root { --mint:#3bd1a8; --gold:#fbc252; --bg:#f8fafc; --ink:#222; --muted:#667085; }
+*{box-sizing:border-box} body{margin:0;font:15px/1.5 Inter,system-ui,Arial;background:var(--bg);color:var(--ink)}
+.hero{padding:28px 16px;text-align:center}
+.logo{height:32px}
+.tag{color:var(--muted);margin:6px 0 12px}
+.nav a{margin:0 8px;color:#111;text-decoration:none;border-bottom:2px solid transparent}
+.nav a:hover{border-color:var(--mint)}
+.card{max-width:980px;margin:18px auto;background:#fff;border:1px solid #e6ecf2;border-radius:16px;padding:16px}
+.chat-header{display:flex;align-items:center;gap:10px;border-bottom:1px solid #eef2f7;padding-bottom:10px}
+.milo{width:28px;height:28px}
+.chat-window{margin:12px 0;height:320px;overflow:auto;background:#fbfeff;border:1px solid #eef2f7;border-radius:12px;padding:8px;display:flex;flex-direction:column;gap:8px}
+.msg{max-width:80%;padding:10px 12px;border-radius:12px}
+.msg.bot{background:#fff;border-left:4px solid var(--mint)}
+.msg.user{align-self:end;background:var(--mint);color:#fff}
+.chat-input{display:flex;gap:8px}
+.chat-input input{flex:1;padding:10px 12px;border:1px solid #e6ecf2;border-radius:10px}
+.btn{background:var(--mint);color:#fff;border:none;border-radius:10px;padding:10px 14px;font-weight:600;cursor:pointer}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.kpi{background:#fff;border:1px solid #e6ecf2;border-radius:12px;padding:10px;display:flex;justify-content:space-between}
+.viz{margin-top:8px;border:1px dashed #e6ecf2;border-radius:12px;padding:10px;background:#fff}
