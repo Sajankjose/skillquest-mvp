@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
         addMsg("bot", "Please type RM or OPS to continue.");
         return;
       }
-      await delay(700);
+      await delay(600);
       addMsg("bot", "Question 1️⃣: What’s most important when talking to a client?");
       addMsg("bot", "A) Talking fast  B) Active listening  C) Giving advice immediately");
       state.step = 2;
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
       } else {
         addMsg("bot", "❌ Not quite. Active listening builds trust.");
       }
-      await delay(700);
+      await delay(600);
       addMsg("bot", "Question 2️⃣: When a client raises an objection, you should…");
       addMsg("bot", "A) Defend immediately  B) Pause & reframe  C) Ignore");
       state.step = 3;
@@ -67,12 +67,12 @@ document.addEventListener("DOMContentLoaded", function () {
       } else {
         addMsg("bot", "❌ Almost. The best approach is to pause & reframe.");
       }
-      await delay(500);
+      await delay(400);
       const xp = state.score * 10;
       addMsg("bot", `🎉 You finished your quest with ${xp} XP!`);
       if (state.score === 2) addMsg("bot", "🏅 Badge Unlocked: Communication Pro!");
       else addMsg("bot", "👏 Good start! Try again to earn your badge.");
-      await delay(800);
+      await delay(700);
       addMsg("bot", "Ready for your next quest? Type ‘Next Quest’ or ‘Dashboard’.");
       state.step = 4;
       return;
@@ -98,6 +98,15 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   input.addEventListener("keydown", (e) => { if (e.key === "Enter") sendBtn.click(); });
+
+  // Pre-prompt chips
+  document.querySelectorAll(".chip.btn[data-prompt]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const text = btn.getAttribute("data-prompt");
+      addMsg("user", text);
+      respond(text);
+    });
+  });
 
   // Seed intro
   addMsg("bot", "Hi! I’m Milo 👋 Ready to start your SkillQuest?");
