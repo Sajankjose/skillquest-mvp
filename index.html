@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SkillQuest – Learn. Play. Grow.</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <header class="hero">
+    <img src="assets/logo.svg" alt="SkillQuest" class="logo" />
+    <p class="tag">Where learning feels like gaming</p>
+    <nav class="nav">
+      <a href="#chat">Milo’s Quest</a>
+      <a href="#dashboard">Manager Dashboard</a>
+      <a href="README.md">Docs</a>
+    </nav>
+  </header>
+
+  <!-- Chat UI -->
+  <section id="chat" class="card">
+    <div class="chat-header">
+      <img src="assets/milo.svg" alt="Milo" class="milo" />
+      <h2>Milo’s Quest</h2>
+    </div>
+    <div id="chatWindow" class="chat-window" aria-live="polite">
+      <div class="msg bot">Hi! I’m Milo 👋 Ready for your 5-minute skill quest?</div>
+    </div>
+    <div class="chat-input">
+      <input id="userInput" placeholder="Type here and press Enter…" />
+      <button id="sendBtn">Send</button>
+    </div>
+  </section>
+
+  <!-- Manager Dashboard -->
+  <section id="dashboard" class="card">
+    <h2>Quest Command</h2>
+    <div class="stats">
+      <div class="kpi"><span>Avg Progress</span><strong id="kpiProgress">–</strong></div>
+      <div class="kpi"><span>Quiz Accuracy</span><strong id="kpiAccuracy">–</strong></div>
+      <div class="kpi"><span>Active (7d)</span><strong id="kpiActive">–</strong></div>
+    </div>
+    <div class="viz">
+      <canvas id="skillBar" width="640" height="320"></canvas>
+    </div>
+    <button id="exportCsv" class="btn">Export CSV</button>
+  </section>
+
+  <script src="js/chat.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
